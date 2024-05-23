@@ -1,54 +1,29 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
 public class Mensagem {
 
     @Id
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
     private String descricao;
-    @Column
-    private String email;
-    @Column
-    private String sms; 
-    @Column
-    private String notificacao;
-    @Column
-    private String tipo;
-    @Column
-    private String destino;
-    
 
-	public void setEnviada(boolean b) {
-		
-		
-	}
+    private Integer idtipo;
 
-
-	public Object getTipo() {
-		
-		return null;
-	}
-
-
-	public String getDestino() {
-		
-		return null;
-	}
-
-
-	public String getConteudo() {
-		return null;
-	}
-    
+    @ManyToOne
+    @JoinColumn(insertable = false, updatable = false)
+    private Tipo tipo;
 }
+
