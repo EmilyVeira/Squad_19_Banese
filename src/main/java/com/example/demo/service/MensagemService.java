@@ -1,13 +1,9 @@
 package com.example.demo.service;
 
+import com.example.demo.model.Mensagem;
 import java.util.List;
 
-import com.example.demo.model.Mensagem;
-
 public interface MensagemService {
-    
-    
-    public List<Mensagem> buscarTodos();
-
+    List<Mensagem> buscarTodos();
+    Mensagem save(Mensagem mensagem);
 }
-
